@@ -23,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/font-awesome/css/font-awesome.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/BootSideMenu.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" />
+
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
     <!-- Bootstrap JS -->
@@ -33,6 +35,9 @@
     <script src="<?php echo base_url(); ?>assets/js/BootSideMenu.js"> </script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"> </script>
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
       counter=0;
     </script>
