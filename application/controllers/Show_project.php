@@ -17,11 +17,11 @@
     {
         $title['mypage'] = "Project";
         $id = $_GET['id'];
-        $data['showproj']=$this->learning_model->get_project($id);
+        $data['showproj'] = $this->learning_model->get_project($id);
 
-        $this->load->view('template/header', $title);
-        $this->load->view('functions/shell');
+        $this->load->view('template/header1', $title);
   			$this->load->view('functions/showproject', $data);
+        $this->load->view('functions/shell');
   			$this->load->view('template/footer');
     }
   }

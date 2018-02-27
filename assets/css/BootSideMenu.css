@@ -210,27 +210,34 @@
     border-left:0;
 }
 
-.default .list-group-item.active,
-.default .list-group-item.active:focus,
-.default .list-group-item.active:hover,
+.default .list-group-item,
+.default .list-group-item:focus,
 .default .item.active:focus {
-    color: #FFFFFF;
-    background-color: #337ab7;
-    border-color: #337ab7;
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #e3e9ef;
 }
 
-.default a.list-group-item {
+
+
+.default .list-group-item:hover{
+  color: #000000;
+  background-color: #e3e9ef;
+  border-color: #e3e9ef;
+}
+
+/* .default a.list-group-item {
     color: #555555;
-}
+} */
 
-.default a.list-group-item:focus,
+/* .default a.list-group-item:focus,
 .default a.list-group-item:hover,
 .default button.list-group-item:focus,
 .default button.list-group-item:hover {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     background-color: #337ab7;
     border-color: #337ab7;
-}
+} */
 
 /*========== Theme Default ==========*/

@@ -17,7 +17,7 @@ class Learning extends CI_Controller {
 				if($_SERVER['REQUEST_METHOD']=='POST'){
 
 					$this->form_validation->set_rules('username', 'Username', 'required') ;
-					$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]', array('required'=>'You must provide a valid email address'));
+					$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users_tbl.email]', array('required'=>'You must provide a valid email address'));
 					$this->form_validation->set_rules('password', 'Password', 'required|min_length[4]');
 					$this->form_validation->set_rules('password2', 'Confirm Password', 'required|min_length[4]|matches[password]');
 
@@ -27,10 +27,10 @@ class Learning extends CI_Controller {
 					if ($this->form_validation->run()== TRUE){
 						echo 'Form Validated';
 						// $this->input->set_userdata($user);
-						$user = array ('username'=>$_POST['username'], 'email'=>$_POST['email'], 'password'=>$hash, 'created_date' => date ('Y-m-d'));
-						$this->db->insert('users',$data);
+						$user = array ('username'=>$_POST['username'], 'email'=>$_POST['email'], 'password'=>$hash);
+						$this->db->insert('users_tbl' ,$user);
 						$this->session->set_flashdata("Success","Your account has been Registered.");
-						redirect("Learning/register", "refresh");
+						redirect("Learning", "refresh");
 					}
 
 
@@ -75,7 +75,7 @@ class Learning extends CI_Controller {
 				$password = $_POST['password'];
 
 				$this->db->select("*");
-				$this->db->from("users");
+				$this->db->from("users_tbl");
 				$this->db->where(array('username'=>$username, 'password'=> $password ));
 				$query = $this->db->get();
 				$num = $query->num_rows();
@@ -90,7 +90,7 @@ class Learning extends CI_Controller {
 					$_SESSION['user_logged']=TRUE;
 					$_SESSION['username'] = $user->username;
 					$this->session->set_flashdata("Success", "You are now logged in");
-					redirect('user/profile','refresh');
+					redirect('Learning/dashboard','refresh');
 
 
 //				}
@@ -195,7 +195,7 @@ class Learning extends CI_Controller {
 
 	}
 
-	  public function search_title(){
+	public function search_title(){
 
 		$this->load->model("Learning_model");
 		$title = $this->input->post('search');
@@ -214,6 +214,41 @@ class Learning extends CI_Controller {
 	}
 
 
+	public function dashboard(){
+			$title['mypage']="Learning Resource Platform";
+			$this->load->view('template/header1',$title);
+			$this->load->view('Learning/dashboard');
+			$this->load->view('template/footer');
+	}
 
+	public function about(){
+			$title['mypage']="Learning Resource Platform";
+			$this->load->view('template/header1',$title);
+			$this->load->view('Learning/about');
+			$this->load->view('template/footer');
+	}
+
+	public function help(){
+			$title['mypage']="Learning Resource Platform";
+			$this->load->view('template/header1',$title);
+			$this->load->view('Learning/help');
+			$this->load->view('template/footer');
+	}
+
+	public function loghelp(){
+			$title['mypage']="Learning Resource Platform";
+			$this->load->view('template/header1',$title);
+			$this->load->view('Learning/loghelp');
+			$this->load->view('template/footer');
+	}
+
+	public function logabout(){
+			$title['mypage']="Learning Resource Platform";
+			$this->load->view('template/header1',$title);
+			$this->load->view('Learning/logabout');
+			$this->load->view('template/footer');
+	}
+
+	
 
 }
